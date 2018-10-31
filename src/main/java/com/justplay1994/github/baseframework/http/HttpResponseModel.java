@@ -21,7 +21,7 @@ public class HttpResponseModel<T> {
         public final static String SUCCESS_MESSAGE = "正常响应请求";
 
         public final static int UNKOWN_ERROR_CODE = -1;
-        public final static String UNKOWN_ERROR_MESSAGE = "正常响应请求";
+        public final static String UNKOWN_ERROR_MESSAGE = "系统发生未知错误";
     }
 
     public String getCode() {

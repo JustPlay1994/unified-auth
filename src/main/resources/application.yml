@@ -20,3 +20,9 @@ security:
 logging:
   level:
     root: INFO
+
+mybatis:
+  #指向mapper的xml文件位置
+  mapper-locations: classpath:com.justplay1994.github.unifiedauth.dao.mapper/*Mapper.xml
+  #指向实体类的位置
+  type-aliases-package: classpath:com.justplay1994.github.unifiedauth.dao.entity.*

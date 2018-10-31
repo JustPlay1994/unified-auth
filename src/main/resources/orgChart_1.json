@@ -1,0 +1,105 @@
+[
+  {
+    "name": "Lao Lao",
+    "detail": "general manager",
+    "status": "0",
+    "id": "123",
+    "type": "0"
+  },
+  {
+    "name": "Bo Miao",
+    "detail": "department manager",
+    "level": "0",
+    "status": "0",
+    "id": "123",
+    "type": "0"
+  },
+  {
+    "name": "中电科新型智慧城市研究院",
+    "detail": "senior engineer",
+    "level": "0-0",
+    "status": "0",
+    "id": "123",
+    "type": "0"
+  },
+  {
+    "name": "Li Xin",
+    "detail": "senior engineer",
+    "level": "0-1",
+    "status": "0",
+    "id": "123",
+    "type": "0"
+  },
+  {
+    "name": "To To",
+    "detail": "engineer",
+    "level": "0-1-0",
+    "status": "0",
+    "id": "123",
+    "type": "1"
+  },
+  {
+    "name": "Fei Fei",
+    "detail": "engineer",
+    "level": "0-1-1",
+    "status": "0",
+    "id": "123",
+    "type": "1"
+  },
+  {
+    "name": "Xuan Xuan",
+    "detail": "engineer",
+    "level": "0-1-2",
+    "status": "0",
+    "id": "123",
+    "type": "1"
+  },
+  {
+    "name": "Su Miao",
+    "detail": "department manager",
+    "level": "1",
+    "status": "0",
+    "id": "123",
+    "type": "0"
+  },
+  {
+    "name": "Pang Pang",
+    "detail": "senior engineer",
+    "level": "1-0",
+    "status": "0",
+    "id": "123",
+    "type": "0"
+  },
+  {
+    "name": "Hei Hei",
+    "detail": "senior engineer",
+    "level": "1-1",
+    "status": "0",
+    "id": "123",
+    "type": "0"
+  },
+  {
+    "name": "Xiang Xiang",
+    "detail": "UE engineer",
+    "level": "1-1-0",
+    "status": "0",
+    "id": "123",
+    "type": "1"
+  },
+  {
+    "name": "Dan Dan",
+    "detail": "engineer",
+    "level": "1-1-1",
+    "status": "0",
+    "id": "123",
+    "type": "1"
+  },
+  {
+    "name": "Zai Zai",
+    "detail": "engineer",
+    "level": "1-1-2",
+    "status": "0",
+    "id": "123",
+    "type": "1"
+  }
+]
