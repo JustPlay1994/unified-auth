@@ -8,20 +8,20 @@ package com.justplay1994.github.baseframework.http;
  * @Create_Date: 2018/10/31 10:44
  * @Updater: huangzezhou
  * @Update_Date: 2018/10/31 10:44
- * @Update_Description: huangzezhou 补充
+ * @Update_Description: huangzezhou 琛ュ厖
  **/
 public class HttpResponseModel<T> {
 
-    String code; //状态码
-    String message; //描述信息
-    T   data;      //数据
+    String code; //鐘舵�佺爜
+    String message; //鎻忚堪淇℃伅
+    T   data;      //鏁版嵁
 
     public interface Code{
         public final static int SUCCESS_CODE = 0;
-        public final static String SUCCESS_MESSAGE = "正常响应请求";
+        public final static String SUCCESS_MESSAGE = "姝ｅ父鍝嶅簲璇锋眰";
 
         public final static int UNKOWN_ERROR_CODE = -1;
-        public final static String UNKOWN_ERROR_MESSAGE = "系统发生未知错误";
+        public final static String UNKOWN_ERROR_MESSAGE = "绯荤粺鍙戠敓鏈煡閿欒";
     }
 
     public String getCode() {

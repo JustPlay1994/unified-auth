@@ -1,6 +1,5 @@
 package com.justplay1994.github.unifiedauth.api;
 
-import com.justplay1994.github.unifiedauth.api.model.TokenModel;
 import com.justplay1994.github.unifiedauth.api.model.http.AuthResponseModel;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -9,9 +8,6 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 组织架构、权限、角色。
@@ -37,4 +33,6 @@ public interface AuthorizationApi {
     @RequestMapping(value = "/permission/validate", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public AuthResponseModel<Boolean> validatePermission(String token, String[] permissions);
+
+
 }
