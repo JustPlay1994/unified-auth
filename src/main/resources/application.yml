@@ -1,0 +1,22 @@
+server:
+  port: 8080
+  servlet:
+    session:
+      timeout: 30
+
+spring:
+  datasource:
+    password: ToKreDi*nJ
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@10.192.19.163:1521/orcl
+    username: ZHFTYJJCPT
+
+
+security:
+  basic:
+    enabled: false
+
+logging:
+  level:
+    root: INFO
