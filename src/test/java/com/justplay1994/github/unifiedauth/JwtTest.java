@@ -48,8 +48,8 @@ import java.util.UUID;
  * ) secret base64 encoded
  */
 
-@RunWith(SpringRunner.class)
-@SpringBootTest(classes = UnifiedAuthApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+//@RunWith(SpringRunner.class)
+//@SpringBootTest(classes = UnifiedAuthApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class JwtTest {
 
     @Test
