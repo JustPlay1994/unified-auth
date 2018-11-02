@@ -40,6 +40,6 @@ create table auth_role_organization(
 	role varchar2(50) not null,
 	organization varchar2(200) not null
 );
-comment on TABLE auth_role_organization is '角色-组织机构表';
+comment on TABLE auth_role_organization is '角色-组织架构表';
 comment on column auth_role_organization.role is '角色';
-comment on column auth_role_organization.organization is '组织结构';
+comment on column auth_role_organization.organization is '组织架构';

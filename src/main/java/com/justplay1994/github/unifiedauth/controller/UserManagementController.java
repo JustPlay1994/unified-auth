@@ -1,10 +1,10 @@
 package com.justplay1994.github.unifiedauth.controller;
 
+import com.justplay1994.github.baseframework.http.HttpResponseModel;
 import com.justplay1994.github.unifiedauth.api.UserManagementApi;
-import com.justplay1994.github.unifiedauth.api.model.TokenModel;
-import com.justplay1994.github.unifiedauth.api.model.User;
-import com.justplay1994.github.unifiedauth.api.model.http.AuthResponseModel;
-import org.springframework.web.bind.annotation.RequestBody;
+import com.justplay1994.github.unifiedauth.dao.entity.UserEntity;
+import com.justplay1994.github.unifiedauth.service.Impl.UserManagementServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -19,8 +19,12 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @RestController
 public class UserManagementController implements UserManagementApi {
+
+    @Autowired
+    UserManagementServiceImpl userManagementService;
+
     @Override
-    public AuthResponseModel<Boolean> createUser(User user) {
-        return null;
+    public HttpResponseModel<Boolean> createUser(UserEntity userEntity, String[] role) {
+        return userManagementService.createUser(userEntity, role);
     }
 }

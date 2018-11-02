@@ -1,6 +1,5 @@
 package com.justplay1994.github.unifiedauth.service.Impl;
 
-import com.justplay1994.github.unifiedauth.api.model.http.AuthResponseModel;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.JwtException;

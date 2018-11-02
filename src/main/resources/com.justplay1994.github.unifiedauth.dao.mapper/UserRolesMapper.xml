@@ -1,0 +1,17 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.justplay1994.github.unifiedauth.dao.UserRolesDao">
+
+    <insert id="insertRolesPerUser" parameterType="java.util.HashMap">
+        INSERT INTO auth_user_roles(account, role)
+        <foreach item="item" index="index" collection="account_roles.roles" open="(" close=")" separator="union">
+            select
+            #{account_roles.account,jdbcType=VARCHAR},
+            #{item,jdbcType=VARCHAR}
+            from dual
+        </foreach>
+    </insert>
+
+</mapper>

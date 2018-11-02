@@ -5,8 +5,8 @@
  */
 package com.justplay1994.github.unifiedauth.controller;
 
+import com.justplay1994.github.baseframework.http.HttpResponseModel;
 import com.justplay1994.github.unifiedauth.api.OrganizationManagementApi;
-import com.justplay1994.github.unifiedauth.api.model.http.AuthResponseModel;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class OrganizationManagementController implements OrganizationManagementApi {
     @Override
-    public AuthResponseModel<Boolean> queryAllOrganizations() {
+    public HttpResponseModel<Boolean> queryAllOrganizations() {
         return null;
     }
 }

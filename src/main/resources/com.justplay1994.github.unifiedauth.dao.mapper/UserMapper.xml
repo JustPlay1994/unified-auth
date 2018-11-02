@@ -1,0 +1,18 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.justplay1994.github.unifiedauth.dao.UserDao">
+
+    <insert id="insert"
+            parameterType="com.justplay1994.github.unifiedauth.dao.entity.UserEntity">
+        INSERT INTO auth_users(account, password, enabled, phonenumber, id_card, real_name)
+        VALUES (#{account}, #{password}, #{enabled}, #{phoneNumber}, #{id_card}, #{real_name})
+    </insert>
+
+    <select id="selectByAccount"
+            resultType="com.justplay1994.github.unifiedauth.dao.entity.UserEntity">
+        SELECT * FROM auth_users WHERE account = #{account}
+    </select>
+
+</mapper>

@@ -5,9 +5,9 @@
  */
 package com.justplay1994.github.unifiedauth.controller;
 
+import com.justplay1994.github.baseframework.http.HttpResponseModel;
 import com.justplay1994.github.unifiedauth.api.RoleManagementApi;
 import com.justplay1994.github.unifiedauth.api.model.Role;
-import com.justplay1994.github.unifiedauth.api.model.http.AuthResponseModel;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RoleManagementController implements RoleManagementApi {
     @Override
-    public AuthResponseModel<Boolean> addRole(Role role) {
+    public HttpResponseModel<Boolean> addRole(Role role) {
         return null;
     }
 
     @Override
-    public AuthResponseModel<Boolean> queryAllPermissions() {
+    public HttpResponseModel<Boolean> queryAllPermissions() {
         return null;
     }
 }

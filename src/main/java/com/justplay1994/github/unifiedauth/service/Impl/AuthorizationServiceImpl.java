@@ -1,7 +1,6 @@
 package com.justplay1994.github.unifiedauth.service.Impl;
 
-import com.justplay1994.github.unifiedauth.api.AuthorizationApi;
-import com.justplay1994.github.unifiedauth.api.model.http.AuthResponseModel;
+import com.justplay1994.github.baseframework.http.HttpResponseModel;
 import org.springframework.stereotype.Service;
 
 /**
@@ -26,7 +25,7 @@ public class AuthorizationServiceImpl {
      * @param permissions
      * @return
      */
-    public AuthResponseModel<Boolean> validatePermission(String token, String[] permissions) {
+    public HttpResponseModel<Boolean> validatePermission(String token, String[] permissions) {
         return null;
     }
 

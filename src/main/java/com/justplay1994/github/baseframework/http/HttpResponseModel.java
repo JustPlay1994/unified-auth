@@ -1,5 +1,12 @@
 package com.justplay1994.github.baseframework.http;
 
+import com.justplay1994.github.unifiedauth.UnifiedAuthApplication;
+import com.justplay1994.github.unifiedauth.api.model.http.AuthCode;
+import org.apache.catalina.core.ApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.jca.context.SpringContextResourceAdapter;
+
 /**
  * @Package: com.justplay1994.github.framework.http
  * @Project: unified-auth
@@ -12,23 +19,47 @@ package com.justplay1994.github.baseframework.http;
  **/
 public class HttpResponseModel<T> {
 
-    String code; //状态码
+    Integer code; //状态码
     String message; //描述信息
     T   data;      //数据
 
-    public interface Code{
-        public final static int SUCCESS_CODE = 0;
-        public final static String SUCCESS_MESSAGE = "正常响应请求";
-
-        public final static int UNKOWN_ERROR_CODE = -1;
-        public final static String UNKOWN_ERROR_MESSAGE = "系统发生未知错误";
+    public HttpResponseModel(){
+        this.code = UnifiedAuthApplication.applicationContext.getBean(SysCode.class).UNKNOWN_ERROR_CODE;
+        this.message = UnifiedAuthApplication.applicationContext.getBean(SysCode.class).message(code);
+        this.data = null;
     }
 
-    public String getCode() {
+    public HttpResponseModel(Exception e){
+        this.code = UnifiedAuthApplication.applicationContext.getBean(SysCode.class).UNKNOWN_ERROR_CODE;
+        this.message = UnifiedAuthApplication.applicationContext.getBean(SysCode.class).message(code);
+        this.message += e.getMessage();
+        this.data = null;
+    }
+
+    public HttpResponseModel(Integer code, T data){
+        this.code = code;
+        this.message = UnifiedAuthApplication.applicationContext.getBean(SysCode.class).message(code);
+        this.data = data;
+    }
+
+    public HttpResponseModel(Integer code, Exception e, T data){
+        this.code = code;
+        this.message = UnifiedAuthApplication.applicationContext.getBean(SysCode.class).message(code);
+        this.message+=e.getMessage();
+        this.data = data;
+    }
+
+    public HttpResponseModel(Integer code, String message, T data){
+        this.code = code;
+        this.message = message;
+        this.data = data;
+    }
+
+    public Integer getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(Integer code) {
         this.code = code;
     }
 

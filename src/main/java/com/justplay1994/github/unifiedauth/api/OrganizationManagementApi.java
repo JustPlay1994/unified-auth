@@ -1,6 +1,6 @@
 package com.justplay1994.github.unifiedauth.api;
 
-import com.justplay1994.github.unifiedauth.api.model.http.AuthResponseModel;
+import com.justplay1994.github.baseframework.http.HttpResponseModel;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +24,6 @@ public interface OrganizationManagementApi {
     @ApiOperation(value = "查询所有组织架构", notes = "查询所有组织架构")
     @RequestMapping(value = "/oraganization/queryall", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
-    public AuthResponseModel<Boolean> queryAllOrganizations();
+    public HttpResponseModel<Boolean> queryAllOrganizations();
 
 }

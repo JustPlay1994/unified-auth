@@ -1,6 +1,6 @@
 package com.justplay1994.github.unifiedauth.api;
 
-import com.justplay1994.github.unifiedauth.api.model.http.AuthResponseModel;
+import com.justplay1994.github.baseframework.http.HttpResponseModel;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -32,7 +32,7 @@ public interface AuthorizationApi {
     })
     @RequestMapping(value = "/permission/validate", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
-    public AuthResponseModel<Boolean> validatePermission(String token, String[] permissions);
+    public HttpResponseModel<Boolean> validatePermission(String token, String[] permissions);
 
 
 }
