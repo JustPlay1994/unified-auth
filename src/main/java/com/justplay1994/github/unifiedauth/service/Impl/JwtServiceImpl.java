@@ -1,4 +1,4 @@
-package com.justplay1994.github.unifiedauth.service;
+package com.justplay1994.github.unifiedauth.service.Impl;
 
 import com.justplay1994.github.unifiedauth.api.model.http.AuthResponseModel;
 import io.jsonwebtoken.Claims;
@@ -24,7 +24,7 @@ import java.util.UUID;
  * @Update_Description: huangzezhou 补充
  **/
 @Service
-public class JwtService {
+public class JwtServiceImpl {
 
     private static final String serverSecret = UUID.randomUUID().toString();
 

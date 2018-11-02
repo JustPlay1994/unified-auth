@@ -21,6 +21,8 @@ public class User {
     String account;     //唯一账号
     @ApiModelProperty(value = "密码", required = true)
     String password;    //密码
+    @ApiModelProperty(value = "账号是否有效", required = true)
+    boolean enable;     //是否有效，1有效，0被禁用
     @ApiModelProperty(value = "手机号", required = true)
     String phoneNumber; //手机号
     @ApiModelProperty(value = "身份证", required = true)
@@ -29,8 +31,7 @@ public class User {
     String real_name;   //真实姓名
     @ApiModelProperty(value = "角色", required = true)
     String role;        //角色
-    @ApiModelProperty(value = "账号是否有效", required = true)
-    boolean enable;     //是否有效，1有效，0被禁用
+
 
     public String getAccount() {
         return account;

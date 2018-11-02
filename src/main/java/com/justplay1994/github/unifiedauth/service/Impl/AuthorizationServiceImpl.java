@@ -1,4 +1,4 @@
-package com.justplay1994.github.unifiedauth.service;
+package com.justplay1994.github.unifiedauth.service.Impl;
 
 import com.justplay1994.github.unifiedauth.api.AuthorizationApi;
 import com.justplay1994.github.unifiedauth.api.model.http.AuthResponseModel;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
  * @Update_Description: huangzezhou 补充
  **/
 @Service
-public class AuthorizationService {
+public class AuthorizationServiceImpl {
 
     /**
      * 流程：
@@ -27,7 +27,6 @@ public class AuthorizationService {
      * @return
      */
     public AuthResponseModel<Boolean> validatePermission(String token, String[] permissions) {
-
         return null;
     }
 
