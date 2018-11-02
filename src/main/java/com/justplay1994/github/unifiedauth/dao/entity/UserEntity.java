@@ -15,9 +15,9 @@ import io.swagger.annotations.ApiModelProperty;
 
 public class UserEntity {
 
-    @ApiModelProperty(value = "账号", required = true)
+    @ApiModelProperty(value = "账号: admin", required = true)
     String account;     //唯一账号
-    @ApiModelProperty(value = "密码", required = true)
+    @ApiModelProperty(value = "密码: 123", required = true)
     String password;    //密码
     @ApiModelProperty(value = "账号是否有效", required = true)
     boolean enabled;     //是否有效，1有效，0被禁用
@@ -27,7 +27,6 @@ public class UserEntity {
     String id_card;     //身份证
     @ApiModelProperty(value = "真实姓名", required = true)
     String real_name;   //真实姓名
-    @ApiModelProperty(value = "角色", required = true)
 
     public String getAccount() {
         return account;

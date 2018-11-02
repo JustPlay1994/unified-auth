@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public interface UserManagementApi {
 
     @ApiOperation(value = "管理员创建用户/修改用户信息/禁用用户", notes = "注意：创建用户接口，也可以用来覆盖修改用户信息，也可以用于禁用/启用用户")
+    @ApiImplicitParam(name = "role", value = "角色: role1,role2", required = true, paramType = "query", dataType = "Array[String]")
     @RequestMapping(value = "/user/create", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
     public HttpResponseModel<Boolean> createUser(UserEntity userEntity, String[] role);
