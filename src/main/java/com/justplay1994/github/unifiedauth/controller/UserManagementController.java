@@ -25,6 +25,10 @@ public class UserManagementController implements UserManagementApi {
 
     @Override
     public HttpResponseModel<Boolean> createUser(UserEntity userEntity, String[] role) {
-        return userManagementService.createUser(userEntity, role);
+        try {
+            return userManagementService.createUser(userEntity, role);
+        }catch (Exception e){
+            return new HttpResponseModel<Boolean>();
+        }
     }
 }
