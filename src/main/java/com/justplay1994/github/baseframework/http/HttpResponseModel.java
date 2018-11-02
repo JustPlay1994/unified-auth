@@ -29,6 +29,13 @@ public class HttpResponseModel<T> {
         this.data = null;
     }
 
+
+    public HttpResponseModel(Integer code){
+        this.code = code;
+        this.message = UnifiedAuthApplication.applicationContext.getBean(SysCode.class).message(code);
+        this.data = null;
+    }
+
     public HttpResponseModel(Exception e){
         this.code = UnifiedAuthApplication.applicationContext.getBean(SysCode.class).UNKNOWN_ERROR_CODE;
         this.message = UnifiedAuthApplication.applicationContext.getBean(SysCode.class).message(code);

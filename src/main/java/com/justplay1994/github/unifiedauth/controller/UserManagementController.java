@@ -4,6 +4,8 @@ import com.justplay1994.github.baseframework.http.HttpResponseModel;
 import com.justplay1994.github.unifiedauth.api.UserManagementApi;
 import com.justplay1994.github.unifiedauth.dao.entity.UserEntity;
 import com.justplay1994.github.unifiedauth.service.Impl.UserManagementServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,6 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserManagementController implements UserManagementApi {
 
+    private static final Logger logger = LoggerFactory.getLogger(UserManagementServiceImpl.class);
+
     @Autowired
     UserManagementServiceImpl userManagementService;
 
@@ -28,6 +32,7 @@ public class UserManagementController implements UserManagementApi {
         try {
             return userManagementService.createUser(userEntity, role);
         }catch (Exception e){
+            logger.error("create user error!\n",e);
             return new HttpResponseModel<Boolean>();
         }
     }

@@ -42,7 +42,7 @@ public class AuthenticationServiceImpl {
         if (!password.equals(userEntity.getPassword())){
             result = new HttpResponseModel<String>(
                     authCode.LOGIN_FAIL_CODE,
-                    null
+                    ""
             );
             return result;
         }
@@ -54,14 +54,14 @@ public class AuthenticationServiceImpl {
         } catch (InterruptedException e) {
             logger.error("登录失败!"+userEntity);
             return new HttpResponseModel<String>(
-                    authCode.LOGIN_FAIL_CODE,
+                    authCode.GENERATOR_TOKEN_ERROR,
                     e,
                     null
             );
         } catch (UnsupportedEncodingException e) {
             logger.error("登录失败!" + userEntity);
             return new HttpResponseModel<String>(
-                    authCode.LOGIN_FAIL_CODE,
+                    authCode.GENERATOR_TOKEN_ERROR,
                     e,
                     null
             );
@@ -69,5 +69,16 @@ public class AuthenticationServiceImpl {
         if (token!=null)
             return new HttpResponseModel<String>(authCode.SYS_SUCCESS_CODE, token);
         return new HttpResponseModel<String>();
+    }
+
+    public HttpResponseModel<Boolean> validateToken(String token) {
+        try {
+            return new HttpResponseModel<Boolean>(authCode.SYS_SUCCESS_CODE,
+                    jwtService.validateToken(token)
+            );
+        }catch (Exception e){
+            logger.error("validate token error!\n", e);
+            return new HttpResponseModel<Boolean>(authCode.VALIDATE_TOKEN_ERROR);
+        }
     }
 }
