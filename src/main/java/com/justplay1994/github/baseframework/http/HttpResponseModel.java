@@ -49,13 +49,6 @@ public class HttpResponseModel<T> {
         this.data = data;
     }
 
-    public HttpResponseModel(Integer code, Exception e, T data){
-        this.code = code;
-        this.message = UnifiedAuthApplication.applicationContext.getBean(SysCode.class).message(code);
-        this.message+=e.getMessage();
-        this.data = data;
-    }
-
     public HttpResponseModel(Integer code, String message, T data){
         this.code = code;
         this.message = message;

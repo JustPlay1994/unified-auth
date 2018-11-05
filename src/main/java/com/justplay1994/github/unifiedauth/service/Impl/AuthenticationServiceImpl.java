@@ -1,6 +1,7 @@
 package com.justplay1994.github.unifiedauth.service.Impl;
 
 import com.justplay1994.github.baseframework.http.HttpResponseModel;
+import com.justplay1994.github.unifiedauth.api.model.TokenModel;
 import com.justplay1994.github.unifiedauth.api.model.http.AuthCode;
 import com.justplay1994.github.unifiedauth.dao.UserDao;
 import com.justplay1994.github.unifiedauth.dao.entity.UserEntity;
@@ -35,40 +36,38 @@ public class AuthenticationServiceImpl {
     @Autowired
     JwtServiceImpl jwtService;
 
-    public HttpResponseModel<String> login(String account, String password, String captcha) {
-        HttpResponseModel<String> result;
+    public HttpResponseModel<TokenModel> login(String account, String password, String captcha) {
+        HttpResponseModel<TokenModel> result;
         //1.校验密码
         UserEntity userEntity = userDao.selectByAccount(account);
         if (!password.equals(userEntity.getPassword())){
-            result = new HttpResponseModel<String>(
+            result = new HttpResponseModel<TokenModel>(
                     authCode.LOGIN_FAIL_CODE,
-                    ""
+                    null
             );
             return result;
         }
         //TODO 2.验证验证码
         //3.生成token
-        String token = null;
+        TokenModel tokenModel = new TokenModel();
         try {
-            token = jwtService.token(account);
+            tokenModel = jwtService.token(account);
         } catch (InterruptedException e) {
-            logger.error("登录失败!"+userEntity);
-            return new HttpResponseModel<String>(
+            logger.error("登录失败!"+userEntity, e);
+            return new HttpResponseModel<TokenModel>(
                     authCode.GENERATOR_TOKEN_ERROR,
-                    e,
                     null
             );
         } catch (UnsupportedEncodingException e) {
-            logger.error("登录失败!" + userEntity);
-            return new HttpResponseModel<String>(
+            logger.error("登录失败!" + userEntity, e);
+            return new HttpResponseModel<TokenModel>(
                     authCode.GENERATOR_TOKEN_ERROR,
-                    e,
                     null
             );
         }
-        if (token!=null)
-            return new HttpResponseModel<String>(authCode.SYS_SUCCESS_CODE, token);
-        return new HttpResponseModel<String>();
+        if (tokenModel !=null)
+            return new HttpResponseModel<TokenModel>(authCode.SYS_SUCCESS_CODE, tokenModel);
+        return new HttpResponseModel<TokenModel>();
     }
 
     public HttpResponseModel<Boolean> validateToken(String token) {

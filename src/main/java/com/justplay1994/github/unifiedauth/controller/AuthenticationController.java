@@ -3,6 +3,7 @@ package com.justplay1994.github.unifiedauth.controller;
 import com.justplay1994.github.baseframework.http.HttpResponseModel;
 import com.justplay1994.github.unifiedauth.api.AuthenticationApi;
 import com.justplay1994.github.unifiedauth.api.model.CaptchaModel;
+import com.justplay1994.github.unifiedauth.api.model.TokenModel;
 import com.justplay1994.github.unifiedauth.service.Impl.AuthenticationServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,12 +30,12 @@ public class AuthenticationController implements AuthenticationApi{
     AuthenticationServiceImpl authenticationService;
 
     @Override
-    public HttpResponseModel<String> login(String account, String password, String captcha) {
+    public HttpResponseModel<TokenModel> login(String account, String password, String captcha) {
         try {
             return authenticationService.login(account, password, captcha);
         }catch (Exception e){
             logger.error("login error", e);
-            return new HttpResponseModel<String>();
+            return new HttpResponseModel<TokenModel>();
         }
     }
 

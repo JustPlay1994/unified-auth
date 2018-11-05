@@ -2,6 +2,7 @@ package com.justplay1994.github.unifiedauth.api;
 
 import com.justplay1994.github.baseframework.http.HttpResponseModel;
 import com.justplay1994.github.unifiedauth.api.model.CaptchaModel;
+import com.justplay1994.github.unifiedauth.api.model.TokenModel;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -33,7 +34,7 @@ public interface AuthenticationApi {
     })
     @RequestMapping(value = "/login", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
-    public HttpResponseModel<String> login(String account, String password, String captcha);
+    public HttpResponseModel<TokenModel> login(String account, String password, String captcha);
 
     @ApiOperation(value = "注销接口", notes = "注销接口")
     @ApiImplicitParam(name = "token", value = "令牌", paramType = "query", required = true, dataType = "String")
