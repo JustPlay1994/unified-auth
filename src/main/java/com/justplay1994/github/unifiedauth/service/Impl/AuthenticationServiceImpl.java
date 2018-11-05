@@ -5,6 +5,7 @@ import com.justplay1994.github.unifiedauth.api.model.TokenModel;
 import com.justplay1994.github.unifiedauth.api.model.http.AuthCode;
 import com.justplay1994.github.unifiedauth.dao.UserDao;
 import com.justplay1994.github.unifiedauth.dao.entity.UserEntity;
+import io.jsonwebtoken.SignatureException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +50,7 @@ public class AuthenticationServiceImpl {
         }
         //TODO 2.验证验证码
         //3.生成token
-        TokenModel tokenModel = new TokenModel();
+        TokenModel tokenModel = null;
         try {
             tokenModel = jwtService.token(account);
         } catch (InterruptedException e) {
@@ -78,6 +79,24 @@ public class AuthenticationServiceImpl {
         }catch (Exception e){
             logger.error("validate token error!\n", e);
             return new HttpResponseModel<Boolean>(authCode.VALIDATE_TOKEN_ERROR);
+        }
+    }
+
+    public HttpResponseModel<TokenModel> refreshToken(String token){
+        try {
+            String account = jwtService.account(token);
+            return new HttpResponseModel<TokenModel>(authCode.SYS_SUCCESS_CODE,jwtService.token(account));
+        } catch (UnsupportedEncodingException e) {
+            logger.error("validate token error!\n", e);
+            return new HttpResponseModel<TokenModel>(authCode.VALIDATE_TOKEN_ERROR);
+        } catch (InterruptedException e) {
+            logger.error("token generate error!\n", e);
+            return new HttpResponseModel<TokenModel>(authCode.GENERATOR_TOKEN_ERROR);
+        } catch (SignatureException e){
+            logger.error("validate token error!\n", e);
+            return new HttpResponseModel<TokenModel>(authCode.VALIDATE_TOKEN_ERROR);
+        } catch (Exception e){
+            return new HttpResponseModel<TokenModel>(authCode.UNKNOWN_ERROR_CODE);
         }
     }
 }

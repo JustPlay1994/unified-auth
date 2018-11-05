@@ -36,7 +36,7 @@ public interface AuthenticationApi {
     @ResponseBody
     public HttpResponseModel<TokenModel> login(String account, String password, String captcha);
 
-    @ApiOperation(value = "注销接口", notes = "注销接口")
+    @ApiOperation(value = "注销接口【暂不实现】", notes = "注销接口，暂时由前端实现，删除token")
     @ApiImplicitParam(name = "token", value = "令牌", paramType = "query", required = true, dataType = "String")
     @RequestMapping(value = "/logout", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
@@ -58,6 +58,6 @@ public interface AuthenticationApi {
     @ApiImplicitParam(name = "token", value = "有效令牌", paramType = "query", required = true, dataType = "String")
     @RequestMapping(value = "/token/refresh", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
-    public HttpResponseModel<String> refreshToken(String token);
+    public HttpResponseModel<TokenModel> refreshToken(String token);
 
 }

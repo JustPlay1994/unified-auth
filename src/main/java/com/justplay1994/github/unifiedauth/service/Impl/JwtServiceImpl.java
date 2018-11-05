@@ -42,12 +42,15 @@ public class JwtServiceImpl {
      * @throws NoSuchAlgorithmException
      */
     public Jws<Claims> decodeJws(String token) throws UnsupportedEncodingException {
-        try {
-            SecretKeySpec keySpec = new SecretKeySpec(serverSecret.getBytes("UTF-8"), "HmacSHA256");
-            return Jwts.parser().setSigningKey(keySpec).parseClaimsJws(token);
-        } catch (JwtException e) {
-            return null;    //正常逻辑，token校验失败，该方法直接处理。
-        }
+        SecretKeySpec keySpec = new SecretKeySpec(serverSecret.getBytes("UTF-8"), "HmacSHA256");
+        return Jwts.parser().setSigningKey(keySpec).parseClaimsJws(token);
+    }
+
+    public String account(String token) throws UnsupportedEncodingException {
+
+        SecretKeySpec keySpec = new SecretKeySpec(serverSecret.getBytes("UTF-8"), "HmacSHA256");
+        return String.valueOf(Jwts.parser().setSigningKey(keySpec).parseClaimsJws(token).getBody().get("sub"));
+
     }
 
     /**

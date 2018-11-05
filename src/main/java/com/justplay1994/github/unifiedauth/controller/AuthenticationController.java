@@ -59,7 +59,7 @@ public class AuthenticationController implements AuthenticationApi{
     }
 
     @Override
-    public HttpResponseModel<String> refreshToken(String token) {
-        return null;
+    public HttpResponseModel<TokenModel> refreshToken(String token) {
+        return authenticationService.refreshToken(token);
     }
 }
